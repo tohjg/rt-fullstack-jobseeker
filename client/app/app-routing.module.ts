@@ -1,12 +1,17 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { VacancyDashboardComponent } from './vacancy-dashboard/vacancy-dashboard.component';
+import { VacancyEditorComponent } from "./vacancy-editor/vacancy-editor.component";
 
 const appRoutes:Routes = [
     { 
-      path: '',
-      component: VacancyDashboardComponent
-      //loadChildren: './vacancy-dashboard/vacancy-dashboard.module#VacancyDashboardModule' 
+        path: '',
+        component: VacancyDashboardComponent
+        //loadChildren: './vacancy-dashboard/vacancy-dashboard.module#VacancyDashboardModule' 
+    },
+    {
+        path: 'vacancy',
+        component: VacancyEditorComponent
     },
     { path: '**', redirectTo: '/', pathMatch:'full'}
   ];
@@ -16,7 +21,7 @@ const appRoutes:Routes = [
         RouterModule.forRoot(
             appRoutes,
             {
-                enableTracing: true
+                enableTracing: false
             }
         )
     ],
