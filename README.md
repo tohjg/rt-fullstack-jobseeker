@@ -14,7 +14,12 @@ Basic job vacancy submission form, where clients can send us details of job vaca
 2. View a list of submitted vacancies
 
 ## TODO
-- [ ] Create new vacancy
-- [ ] List vacancies
+- [x] Dashboard - listing vacancies
+- [x] Create new vacancy
+- [ ] Prepare for backend server
 - [ ] Vacancy API
 - [ ] Skills List API
+
+## Enhancement/Idea TODO
+- [ ] Step-by-step form
+- [ ] PWA
