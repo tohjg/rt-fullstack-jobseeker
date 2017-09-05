@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Vacancy } from "../models/vacancy";
 
 @Component({
@@ -8,21 +8,12 @@ import { Vacancy } from "../models/vacancy";
 })
 export class VacancyEditorComponent implements OnInit {
 
+  @ViewChild('vacancyFormDir') form: HTMLFormElement;
   submitting = false;
-  model = new Vacancy(
-    NaN,
-    "",
-    "",
-    "",
-    NaN,
-    NaN,
-    "",
-    "",
-    ""
-  );
+  model = new Vacancy();
 
   constructor() {
-    console.log('model', this.model)
+    
   }
 
   ngOnInit() {
