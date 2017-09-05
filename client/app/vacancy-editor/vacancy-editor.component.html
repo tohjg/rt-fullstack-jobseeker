@@ -56,6 +56,6 @@
         <p>Email is required and format should be <strong>username@email.com</strong></p>
       </div>
     </div>
-    <button type="submit" class="btn btn-success submit-btn" [disabled]="!vacancyFormDir.valid">Submit</button>
+    <button type="submit" class="btn submit-btn" [ngClass]="{'btn-success': vacancyFormDir.valid && !vacancyFormDir.submitted}" [disabled]="!vacancyFormDir.valid && vacancyFormDir.submitted">Submit</button>
   </form>
 </div>
