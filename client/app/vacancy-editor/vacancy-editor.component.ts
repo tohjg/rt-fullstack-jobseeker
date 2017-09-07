@@ -79,6 +79,7 @@ export class VacancyEditorComponent implements OnInit {
       } else {
         // assume data failed at the backend
         this.openErrorModal();
+        console.log('Mutation error:', error);
       }
     });
   }
