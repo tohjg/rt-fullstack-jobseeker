@@ -16,12 +16,5 @@ Basic job vacancy submission form, where clients can send us details of job vaca
 ## TODO
 - [x] Dashboard - listing vacancies
 - [x] Create new vacancy
-- [ ] Prepare for backend server
-- [ ] CI integration with Travis
-- [ ] CD integration with Heroku and Travis
+- [x] Prepare for backend server
 - [ ] Vacancy API
-- [ ] Skills List API
-
-## Enhancement/Idea TODO
-- [ ] Step-by-step form
-- [ ] PWA
