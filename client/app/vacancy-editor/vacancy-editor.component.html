@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container">  
   <div class="header"><h2>Talent search request</h2></div>
   
   <form (ngSubmit)="requestVacancy()" #vacancyFormDir="ngForm" >
@@ -58,4 +58,34 @@
     </div>
     <button type="submit" class="btn submit-btn" [ngClass]="{'btn-success': vacancyFormDir.valid && !vacancyFormDir.submitted}" [disabled]="!vacancyFormDir.valid && vacancyFormDir.submitted">Submit</button>
   </form>
+
+  <ng-template #successModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Your request has being submitted</h4>
+    </div>
+    <div class="modal-body">
+      <p>We will have a recruitment consultant contact you once we found the right people for your business. In meanwhile, our intelligent system will introduce some of the personel that match your vacancy requirement at the Vacancy dashboard.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="c()">OK</button>
+    </div>
+  </ng-template>
+
+  <ng-template #errorModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Your request failed to send</h4>
+    </div>
+    <div class="modal-body">
+      <p>{{errorMessage}}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="c()">OK</button>
+    </div>
+  </ng-template>
+
+  <!-- for testing only -->
+  <!--
+  <button (click)="openSuccessModal()">Test success</button>
+  <button (click)="openErrorModal()">Test fail</button>
+  -->
 </div>

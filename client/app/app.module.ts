@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ApolloClient, createNetworkInterface } from 'apollo-client';
 import { ApolloModule } from 'apollo-angular';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
@@ -31,7 +32,8 @@ export function provideClient(): ApolloClient {
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    ApolloModule.forRoot(provideClient)
+    ApolloModule.forRoot(provideClient),
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

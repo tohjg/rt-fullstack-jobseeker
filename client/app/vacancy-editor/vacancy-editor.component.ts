@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { Vacancy } from "../models/vacancy";
 import { Apollo } from "apollo-angular";
 import gpl from "graphql-tag";
+import { NgbModal, ModalDismissReasons, NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
 
 const requestVacancyMutation = gpl`
   mutation newTalent($position:String!, 
@@ -29,6 +30,9 @@ const requestVacancyMutation = gpl`
     }
 `
 
+const ERR_NETWORK = 'We are not able to send your data to our server. Please check your network connection and try again.';
+const ERR_DEFAULT = 'Don\'t worry. We will have someone to fix it for you. You may try again later.';
+
 @Component({
   selector: 'app-vacancy-editor',
   templateUrl: './vacancy-editor.component.html',
@@ -37,34 +41,72 @@ const requestVacancyMutation = gpl`
 export class VacancyEditorComponent implements OnInit {
 
   @ViewChild('vacancyFormDir') form: HTMLFormElement;
+  @ViewChild('successModal') successModal;
+  @ViewChild('errorModal') errorModal;
+
   submitting = false;
   model = new Vacancy();
+  errorMessage = '';
 
   constructor(
     private apollo:Apollo,
-    private router:Router
+    private router:Router,
+    private modalService:NgbModal
   ) {
     
   }
 
   ngOnInit() {
-    
+
   }
 
   requestVacancy() {
     this.submitting = true;
-    // return false;
-    console.log('submitting', this.model)
-
+    console.log('submitting', this.model);
     this.apollo.mutate({
       mutation: requestVacancyMutation,
       variables: this.model,
     }).subscribe(({data}) => {
-      // route to main page
-      console.log('-- talent requested', data);
+      // show success modal
+      this.openSuccessModal();
     }, (error) => {
-      console.log('-- submittion error', error);
+      // show error modal
+      const errMsg:string = error.message;
+      
+      if (errMsg.includes('Network error')) {
+        // assume data unable to send to server
+        this.openErrorModal(ERR_NETWORK);
+      } else {
+        // assume data failed at the backend
+        this.openErrorModal();
+      }
     });
+  }
+
+  openSuccessModal() {
+    this.openModal(this.successModal, {
+      // disable keyboard escape key
+      keyboard: false,
+      // prevent user close the modeal
+      backdrop: 'static'
+    }, (args) => {
+      // after user click ok, redirect to main page
+      this.router.navigate(['/']);
+    });
+  }
+
+  openErrorModal(msg:string = ERR_DEFAULT) {
+    this.errorMessage = msg;
+    this.openModal(this.errorModal);
+  }
+
+  openModal(content:any, options?:NgbModalOptions, close?: Function) {
+    this.modalService.open(content, options).result
+      .then((result) => {
+        close(result);
+      }, (reason) => {
+        close(reason);
+      });
   }
 
 }
