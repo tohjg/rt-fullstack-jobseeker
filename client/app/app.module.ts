@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ApolloClient, createNetworkInterface } from 'apollo-client';
+import { ApolloModule } from 'apollo-angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
@@ -8,6 +10,13 @@ import { VacancyDashboardComponent } from './vacancy-dashboard/vacancy-dashboard
 import { VacancyEditorComponent } from "./vacancy-editor/vacancy-editor.component";
 import { ValueLargerThanDirective } from './directives/value-larger-than.directive';
 import { ValueSmallerThanDirective } from './directives/value-smaller-than.directive';
+
+// initialise connection to graphql server
+const graphqlClient = new ApolloClient();
+
+export function provideClient(): ApolloClient {
+  return graphqlClient;
+}
 
 @NgModule({
   declarations: [
@@ -21,7 +30,8 @@ import { ValueSmallerThanDirective } from './directives/value-smaller-than.direc
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ApolloModule.forRoot(provideClient)
   ],
   providers: [],
   bootstrap: [AppComponent]
