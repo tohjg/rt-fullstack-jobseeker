@@ -15,3 +15,14 @@
         1. clone other repo
         2. change origin to upstream to get update from original repo
         3. add own repository to origin
+- [ ] graphql
+    - [Setting up a simple GraphQL Server with Node, Express and Mongoose](https://medium.com/@gethylgeorge/setting-up-a-simple-graphql-server-with-node-express-and-mongoose-ff8a1071af53)
+    - [Creating a structured, hot-reloadable GraphQL API with Express.js, Apollo Server and Webpack: Part 1](https://hackernoon.com/creating-a-structured-hot-reloadable-graphql-api-with-express-js-de62c859643)
+        - contains overview of graphql on server
+    - https://github.com/apollographql/GitHunt-API/blob/master/api/schema.js
+        - good example to 
+    - https://eddywashere.com/blog/switching-out-callbacks-with-promises-in-mongoose/
+    - https://dev-blog.apollodata.com/tutorial-building-a-graphql-server-cddaa023c035
+    
+- [ ] continuous integration 
+- [ ] continuous deployment
