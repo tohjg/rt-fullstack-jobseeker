@@ -6,7 +6,7 @@
     "ng": "ng",
     "build": "ng build -aot -prod && tsc -p server",
     "start": "yarn run dev",
-    "dev": "concurrently \"ng serve -pc proxy.conf.json --open\" \"yarn run dev-backend\"",
+    "dev": "concurrently \"ng serve -pc proxy.conf.json --open\" \"yarn run dev:backend\"",
     "dev:backend": "concurrently \"mongod\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
     "prod": "concurrently \"mongod\" \"ng build -aot -prod && tsc -p server && node dist/server/app.js\"",
     "test": "ng test",
