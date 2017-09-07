@@ -5,21 +5,21 @@
     <div class="form-group">
       <label for="position">Who are you looking for?</label>
       <input type="text" id="position" class="form-control" placeholder="Position" [(ngModel)]="model.position" name="position" required #position="ngModel">
-      <div class="error bg-danger text-danger" [hidden]="position.valid || position.untouched || (position.pristine && vacancyFormDir.submitted)">
+      <div class="error text-danger" [hidden]="position.valid || position.untouched || (position.pristine && vacancyFormDir.submitted)">
         <p>Position is required</p>
       </div>
     </div>
     <div class="form-group">
       <label for="specs">How could they help you?</label>
       <textarea id="specs" class="form-control" row="3" placeholder="Jobs requirement and responsibilities" [(ngModel)]="model.specs" name="specs" required #spec="ngModel"></textarea>
-      <div class="error bg-danger text-danger" [hidden]="spec.valid || spec.untouched || (spec.pristine && vacancyFormDir.submitted)">
+      <div class="error text-danger" [hidden]="spec.valid || spec.untouched || (spec.pristine && vacancyFormDir.submitted)">
         <p>Jobs requirement and responsibilities information is required</p>
       </div>
     </div>
     <div class="form-group">
       <label for="location">Where do you need them?</label>
       <input type="text" id="location" class="form-control" placeholder="Location" [(ngModel)]="model.location" name="location" required #location="ngModel"/>
-      <div class="error bg-danger text-danger" [hidden]="location.valid || location.untouched || (location.pristine && vacancyFormDir.submitted)">
+      <div class="error text-danger" [hidden]="location.valid || location.untouched || (location.pristine && vacancyFormDir.submitted)">
         <p>Location is required</p>
       </div>
     </div>
@@ -30,7 +30,7 @@
           <span class="salary_indicator">-</span>
           <input type="number" class="form-control" id="salary_max" placeholder="Salary maximum" [(ngModel)]="model.salary_max" [valueLargerThan]="salaryMin" name="salary_max" #salaryMax="ngModel" required #spy/>
       </div>
-      <div class="error bg-danger text-danger" [hidden]="(salaryMin.valid && salaryMax.valid) || (salaryMin.untouched && salaryMax.untouched) || vacancyFormDir.submitted">
+      <div class="error text-danger" [hidden]="(salaryMin.valid && salaryMax.valid) || (salaryMin.untouched && salaryMax.untouched) || vacancyFormDir.submitted">
         <p>Invalid salary range</p>
       </div>
     </div>
@@ -38,21 +38,21 @@
     <div class="form-group">
       <label for="contact-name">Contact name</label>
       <input type="text" class="form-control" id="contact-name" [(ngModel)]="model.ctc_name" name="contact-name" required #contactName="ngModel">
-      <div class="error bg-danger text-danger" [hidden]="contactName.valid || contactName.untouched || (contactName.pristine && vacancyFormDir.submitted)">
+      <div class="error text-danger" [hidden]="contactName.valid || contactName.untouched || (contactName.pristine && vacancyFormDir.submitted)">
           <p>Contact person name is required</p>
         </div>
     </div>
     <div class="form-group">
       <label for="contact-phone">Phone number</label>
       <input type="text" class="form-control" id="contact-phone" [(ngModel)]="model.ctc_phone" name="contact-phone" required #contactPhone="ngModel">
-      <div class="error bg-danger text-danger" [hidden]="contactPhone.valid || contactPhone.untouched || (contactPhone.pristine && vacancyFormDir.submitted)">
+      <div class="error text-danger" [hidden]="contactPhone.valid || contactPhone.untouched || (contactPhone.pristine && vacancyFormDir.submitted)">
         <p>Contact phone number is required</p>
       </div>
     </div>
     <div class="form-group">
       <label for="contact-email">Email</label>
       <input type="email" class="form-control" id="contact-email" [(ngModel)]="model.ctc_email" name="contact-email" required [email]="true" #contactEmail="ngModel">
-      <div class="error bg-danger text-danger" [hidden]="contactEmail.valid || contactEmail.untouched || (contactEmail.pristine && vacancyFormDir.submitted)">
+      <div class="error text-danger" [hidden]="contactEmail.valid || contactEmail.untouched || (contactEmail.pristine && vacancyFormDir.submitted)">
         <p>Email is required and format should be <strong>username@email.com</strong></p>
       </div>
     </div>
@@ -84,7 +84,7 @@
   </ng-template>
 
   <!-- for testing only -->
-  <!--
+<!--   
   <button (click)="openSuccessModal()">Test success</button>
   <button (click)="openErrorModal()">Test fail</button>
   -->
