@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { Vacancy } from "../models/vacancy";
 import { Apollo } from "apollo-angular";
 import gpl from "graphql-tag";
-import { NgbModal, ModalDismissReasons, NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal, NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
