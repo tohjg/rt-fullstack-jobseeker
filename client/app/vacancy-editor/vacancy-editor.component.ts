@@ -20,7 +20,7 @@ const requestVacancyMutation = gpl`
   ) {
       requestTalentSearch(params: {
         position: $position,
-        spec: $specs,
+        skills: $specs,
         location: $location,
         minSalary: $salary_min,
         maxSalary: $salary_max,
