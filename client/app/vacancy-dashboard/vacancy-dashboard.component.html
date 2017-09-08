@@ -15,7 +15,7 @@
 <div class="container">
   <div class="request-btn-wrapper"><a class="btn btn-primary request-btn" routerLink="/vacancy">Make a request</a></div>
 
-  <table class="table table-responsive table-hover">
+  <table class="table table-responsive table-hover" *ngIf="vacancies.length > 0">
     <thead>
       <tr>
         <th>Position</th>
@@ -29,9 +29,24 @@
         <td>{{vacancy.position}}</td>
         <td>{{vacancy.location}}</td>
         <td>{{vacancy.ctc_name}}</td>
-        <td><button class="btn btn-outline-primary">Edit</button>
-          <button class="btn btn-outline-danger">Delete</button></td>
+        <td><a class="btn btn-outline-primary" [routerLink]="['vacancy', vacancy.id]">Edit</a>
+          <a class="btn btn-outline-danger" (click)="removeVacancy(vacancy)" href="#">Delete</a></td>
       </tr>
     </tbody>
   </table>
+
+  <ng-template #deleteModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">{{deleting_item_label}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to remove it?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="c('delete')">Delete</button>
+    </div>
+  </ng-template>
 </div>

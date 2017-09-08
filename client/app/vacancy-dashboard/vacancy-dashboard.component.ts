@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gpl from 'graphql-tag';
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 import { Vacancy } from '../models/vacancy';
 
@@ -15,6 +16,14 @@ const vacanciesListQuery = gpl`
   }
 `
 
+const removalVacancyMutation = gpl`
+  mutation removeVacancy($id:ID) {
+    removeTalentSearch(id: $id){
+      ok
+    }
+  }
+`
+
 @Component({
   selector: 'app-vacancy-dashboard',
   templateUrl: './vacancy-dashboard.component.html',
@@ -22,10 +31,14 @@ const vacanciesListQuery = gpl`
 })
 export class VacancyDashboardComponent implements OnInit {
 
+  @ViewChild('deleteModal') deleteModal;
+
   vacancies: Vacancy[] = [];
+  deleting_item_label: string;
 
   constructor(
-    private apollo:Apollo
+    private apollo:Apollo,
+    private modalService:NgbModal
   ) { 
 
   }
@@ -44,6 +57,22 @@ export class VacancyDashboardComponent implements OnInit {
         return acc;
       }, []);
     });
+  }
+
+  removeVacancy(item:Vacancy) {
+    this.deleting_item_label = item.position;
+
+    this.modalService.open(this.deleteModal).result
+      .then((result) => {
+        console.log('result-=', result);
+        this.confirmRemoveVacancy(item);
+      }, (reason) => {
+        // ignore whatever reason
+      })
+  }
+
+  private confirmRemoveVacancy(item:Vacancy) {
+    //TODO: call mutation
   }
 
 }
