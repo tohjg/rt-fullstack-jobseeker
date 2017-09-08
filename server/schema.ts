@@ -32,10 +32,18 @@ const typeDefs = `
     ): Vacancy
   }
 
+  type RemovalTalentPayload {
+    id: ID
+  }
+
   type Mutation {
     requestTalentSearch(
       params: TalentRequestForm
     ): Vacancy
+
+    removeTalentSearch(
+      id: ID
+    ): RemovalTalentPayload
   }
 `;
 
@@ -54,12 +62,14 @@ const resolvers = {
     requestTalentSearch(obj, args, context) {
       if (args.params.id != undefined) {
         // update
-        console.log('updating vacancy info', args.params.id);
         return vacancyCtrl.update(args.params);
       }
 
       // create new entry
       return vacancyCtrl.insert(args.params);
+    },
+    removeTalentSearch(obj, args, context) {
+      return vacancyCtrl.delete(args.id);
     }
   }
 }

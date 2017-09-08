@@ -43,5 +43,17 @@ export default class Vacancy {
             return id;
         }).catch((error) => error);
     }
+
+    delete = (id:string) => {
+        return new Promise((resolve, reject) => {
+            VacancyModel.remove({_id: id})
+                .then(() => {
+                    resolve({
+                        id: id
+                    });
+                })
+                .catch((error) => reject(error));
+        })
+    }
 }
  

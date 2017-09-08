@@ -19,7 +19,7 @@ const vacanciesListQuery = gpl`
 const removalVacancyMutation = gpl`
   mutation removeVacancy($id:ID) {
     removeTalentSearch(id: $id){
-      ok
+      id
     }
   }
 `
@@ -64,7 +64,6 @@ export class VacancyDashboardComponent implements OnInit {
 
     this.modalService.open(this.deleteModal).result
       .then((result) => {
-        console.log('result-=', result);
         this.confirmRemoveVacancy(item);
       }, (reason) => {
         // ignore whatever reason
@@ -72,7 +71,19 @@ export class VacancyDashboardComponent implements OnInit {
   }
 
   private confirmRemoveVacancy(item:Vacancy) {
-    //TODO: call mutation
+    this.apollo.mutate({
+      mutation: removalVacancyMutation,
+      variables: item
+    }).subscribe(
+      ({data})=> {
+        // successfully deleted
+        this.getVacancyList();
+      },
+      (error) => {
+        // removal failed
+
+      }
+    )
   }
 
 }
