@@ -19,5 +19,9 @@ export default class Vacancy {
         const obj = new VacancyModel(data);
         return obj.save();
     }
+
+    getAll = () => {
+        return VacancyModel.find({});
+    }
 }
  

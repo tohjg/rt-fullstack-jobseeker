@@ -19,7 +19,7 @@ const typeDefs = `
     location: String,
     minSalary: Int,
     maxSalary: Int,
-    contactPerson: String,
+    contactName: String,
     contactEmail: String,
     contactPhone: String
   }
@@ -40,10 +40,7 @@ const vacancyCtrl = new Vacancy();
 const resolvers = {
   Query: {
     vacancies(obj, args, context) {
-      console.log('-> request vacancies', obj);
-      console.log(args);
-      console.log(context);
-      return [];
+      return vacancyCtrl.getAll();
     }
   },
   Mutation: {
