@@ -1,0 +1,42 @@
+@import '../../../node_modules/ngx-chips/dist/modules/core/styles/core/_core.scss';
+
+// this is the container's theme
+$my-theme: (
+    container-border-bottom: 0 !important,
+    container-padding: 0 !important
+);
+
+// this is the tag's theme
+$my-theme-tag-theme: (
+    padding: 0 1em
+);
+
+// apply theme to the container
+/deep/ .ng2-tag-input.my-theme {
+    @include tag-input-theme($my-theme);
+}
+
+// apply theme to the tags
+/deep/ .ng2-tag-input.my-theme tag {
+    @include tag-theme($my-theme-tag-theme);
+}
+
+// ==
+
+.header {
+    margin-bottom: 3em;
+}
+
+.submit-btn {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.salary_indicator {
+    margin-left: 1.2em;
+    margin-right: 1.2em;
+}
+
+.error {
+    padding: 0.8em 0.8em 0.85em 0.8em;
+}

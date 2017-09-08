@@ -3,7 +3,7 @@ import Vacancy from "./models/Vacancy";
 const typeDefs = `
   input TalentRequestForm {
     position: String,
-    spec: String,
+    skills: [String],
     location: String,
     minSalary: Int,
     maxSalary: Int,
@@ -15,7 +15,7 @@ const typeDefs = `
   type Vacancy {
     id: ID!,
     position: String,
-    spec: String,
+    skills: [String],
     location: String,
     minSalary: Int,
     maxSalary: Int,

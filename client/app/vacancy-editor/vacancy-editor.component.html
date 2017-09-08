@@ -3,28 +3,31 @@
   
   <form (ngSubmit)="requestVacancy()" #vacancyFormDir="ngForm" >
     <div class="form-group">
-      <label for="position">Who are you looking for?</label>
-      <input type="text" id="position" class="form-control" placeholder="Position" [(ngModel)]="model.position" name="position" required #position="ngModel">
+      <label for="position">Position</label>
+      <input type="text" id="position" class="form-control" placeholder="eg. Frontend Developer" [(ngModel)]="model.position" name="position" required #position="ngModel">
       <div class="error text-danger" [hidden]="position.valid || position.untouched || (position.pristine && vacancyFormDir.submitted)">
         Position is required
       </div>
     </div>
     <div class="form-group">
-      <label for="specs">How could they help you?</label>
-      <textarea id="specs" class="form-control" row="3" placeholder="Jobs requirement and responsibilities" [(ngModel)]="model.specs" name="specs" required #spec="ngModel"></textarea>
+      <label for="specs">Required skills</label>
+      <tag-input id="specs" class="form-control" [theme]="'my-theme'" secondaryPlaceholder="Enter a skill" placeholder="Enter more skill" [(ngModel)]="model.specs" modelAsStrings="true" name="specs" required #spec="ngModel">
+        <tag-input-dropdown [autocompleteItems]="skills">
+        </tag-input-dropdown>
+      </tag-input>
       <div class="error text-danger" [hidden]="spec.valid || spec.untouched || (spec.pristine && vacancyFormDir.submitted)">
-        Jobs requirement and responsibilities information is required
+        Skills is required
       </div>
     </div>
     <div class="form-group">
-      <label for="location">Where do you need them?</label>
+      <label for="location">Job location</label>
       <input type="text" id="location" class="form-control" placeholder="Location" [(ngModel)]="model.location" name="location" required #location="ngModel"/>
       <div class="error text-danger" [hidden]="location.valid || location.untouched || (location.pristine && vacancyFormDir.submitted)">
-        Location is required
+        Job location is required
       </div>
     </div>
     <div class="form-group">
-      <label for="salary">How much you willing to pay?</label>
+      <label for="salary">Salary</label>
       <div class="form-inline" >
           <input type="number" class="form-control" id="salary_min" placeholder="Salary minimum" [(ngModel)]="model.salary_min" [valueSmallerThan]="salaryMax" name="salary_min" #salaryMin="ngModel" required #spyMin />
           <span class="salary_indicator">-</span>
@@ -34,7 +37,6 @@
         Invalid salary range
       </div>
     </div>
-    <div>Who to contact when talents found?</div>
     <div class="form-group">
       <label for="contact-name">Contact name</label>
       <input type="text" class="form-control" id="contact-name" [(ngModel)]="model.ctc_name" name="contact-name" required #contactName="ngModel">

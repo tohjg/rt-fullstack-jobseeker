@@ -4,10 +4,13 @@ import { Vacancy } from "../models/vacancy";
 import { Apollo } from "apollo-angular";
 import gpl from "graphql-tag";
 import { NgbModal, ModalDismissReasons, NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
 
 const requestVacancyMutation = gpl`
   mutation newTalent($position:String!, 
-    $specs:String!, 
+    $specs:[String]!, 
     $location:String!, 
     $salary_min:Int!, 
     $salary_max:Int!, 
@@ -36,7 +39,7 @@ const ERR_DEFAULT = 'Don\'t worry. We will have someone to fix it for you. You m
 @Component({
   selector: 'app-vacancy-editor',
   templateUrl: './vacancy-editor.component.html',
-  styleUrls: ['./vacancy-editor.component.css']
+  styleUrls: ['./vacancy-editor.component.scss']
 })
 export class VacancyEditorComponent implements OnInit {
 
@@ -47,6 +50,17 @@ export class VacancyEditorComponent implements OnInit {
   submitting = false;
   model = new Vacancy();
   errorMessage = '';
+  skills = [
+    'C#', '.Net', 'PHP', 'Python', 'C++', 'Java',
+    'Javascript', 'CSS', 'SASS', 'HTML5', 'HTML',
+    'Go', 'SQL', 'mySQL', 'MSSQL', 'Lisp', 'Kotlin',
+    'Ruby', 'Haskell', 'NodeJS', 'Actionscript', 'Markdown',
+    'Lisp', 'Perl', 'COBOL', 'CoffeeScript', 'TypeScript',
+    'Pascal', 'Bash', 'BASIC', 'D', 'Emac', 'Objective-C',
+    'Swift', 'Erling', 'Euler', 'Processing', 'F', 'F#',
+    'Haxe', 'JADE', 'J#', 'J', 'Kaleidoscope', 'Lagoona', 
+    'Lava'
+  ];
 
   constructor(
     private apollo:Apollo,

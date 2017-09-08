@@ -2,7 +2,7 @@ import * as mongoose from "mongoose";
 
 const dbVacancySchema = new mongoose.Schema({
     position: String,
-    spec: String,
+    skills: String,
     location: String,
     minSalary: Number,
     maxSalary: Number,

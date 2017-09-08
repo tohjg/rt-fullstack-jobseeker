@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ApolloClient, createNetworkInterface } from 'apollo-client';
 import { ApolloModule } from 'apollo-angular';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { TagInputModule } from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
@@ -33,7 +35,9 @@ export function provideClient(): ApolloClient {
     ReactiveFormsModule,
     AppRoutingModule,
     ApolloModule.forRoot(provideClient),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    TagInputModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
