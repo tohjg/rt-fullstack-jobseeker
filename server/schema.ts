@@ -2,6 +2,7 @@ import { makeExecutableSchema } from 'graphql-tools';
 import Vacancy from "./models/Vacancy";
 const typeDefs = `
   input TalentRequestForm {
+    id: ID,
     position: String,
     skills: [String],
     location: String,
@@ -25,7 +26,10 @@ const typeDefs = `
   }
   
   type Query {
-    vacancies: [Vacancy]
+    vacancies: [Vacancy],
+    vacancy(
+      id: ID
+    ): Vacancy
   }
 
   type Mutation {
@@ -41,11 +45,20 @@ const resolvers = {
   Query: {
     vacancies(obj, args, context) {
       return vacancyCtrl.getAll();
+    },
+    vacancy(obj, args, context) {
+      return vacancyCtrl.get(args.id);
     }
   },
   Mutation: {
     requestTalentSearch(obj, args, context) {
-      console.log('requestTalentSearch', args.params);
+      if (args.params.id != undefined) {
+        // update
+        console.log('updating vacancy info', args.params.id);
+        return vacancyCtrl.update(args.params);
+      }
+
+      // create new entry
       return vacancyCtrl.insert(args.params);
     }
   }

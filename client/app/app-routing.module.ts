@@ -13,6 +13,10 @@ const appRoutes:Routes = [
         path: 'vacancy',
         component: VacancyEditorComponent
     },
+    {
+        path: 'vacancy/:id',
+        component: VacancyEditorComponent
+    },
     { path: '**', redirectTo: '/', pathMatch:'full'}
   ];
 
