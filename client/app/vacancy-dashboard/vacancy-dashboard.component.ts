@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Apollo } from 'apollo-angular';
+import { Apollo, ApolloQueryObservable } from 'apollo-angular';
 import gpl from 'graphql-tag';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
@@ -35,6 +35,7 @@ export class VacancyDashboardComponent implements OnInit {
 
   vacancies: Vacancy[] = [];
   deleting_item_label: string;
+  listQuery: ApolloQueryObservable<any>;
 
   constructor(
     private apollo:Apollo,
@@ -44,19 +45,24 @@ export class VacancyDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('hello world on init')
-    this.getVacancyList();
-  }
-
-  getVacancyList() {
-    this.apollo.watchQuery<any>({
+    // create observable
+    this.listQuery = this.apollo.watchQuery<any>({
       query: vacanciesListQuery
-    }).subscribe(({data}) => {
+    });
+
+    // subscribe to the observable
+    this.listQuery.subscribe(({data}) => {
       this.vacancies = data.vacancies.reduce((acc, vacancy) => {
         acc.push(new Vacancy(vacancy.id, vacancy.position, null, vacancy.location, null, null, vacancy.contactName));
         return acc;
       }, []);
     });
+
+    this.getVacancyList();
+  }
+
+  getVacancyList() {
+    this.listQuery.refetch();
   }
 
   removeVacancy(item:Vacancy) {
