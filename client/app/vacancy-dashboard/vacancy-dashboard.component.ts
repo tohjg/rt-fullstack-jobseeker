@@ -27,7 +27,7 @@ const removalVacancyMutation = gpl`
 @Component({
   selector: 'app-vacancy-dashboard',
   templateUrl: './vacancy-dashboard.component.html',
-  styleUrls: ['./vacancy-dashboard.component.css']
+  styleUrls: ['./vacancy-dashboard.component.scss']
 })
 export class VacancyDashboardComponent implements OnInit {
 

@@ -1,0 +1,35 @@
+.cover-header {
+    background: url("../../assets/jumbotron2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 0;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.69) 0px 0px 3px;
+}
+
+.empty-state-content {
+    width: 30em;
+    margin-top: 7em;
+    text-align: center;
+
+    .magnifying-glass {
+        width: 10em;
+    }
+
+    .content {
+        margin-top: 1.8em;
+    }
+
+    .request-btn {
+        margin-top: 0.8em;
+    }
+}
+
+.request-btn {
+    margin-top: 1em;
+}
+
+.request-btn-wrapper {
+    margin-bottom: 0.8em;
+}
