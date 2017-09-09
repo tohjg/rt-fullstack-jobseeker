@@ -23,6 +23,5 @@
         - good example to 
     - https://eddywashere.com/blog/switching-out-callbacks-with-promises-in-mongoose/
     - https://dev-blog.apollodata.com/tutorial-building-a-graphql-server-cddaa023c035
-    
-- [ ] continuous integration 
-- [ ] continuous deployment
+- progressive web
+    - https://houssein.me/progressive-angular-applications
