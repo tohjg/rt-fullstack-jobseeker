@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
       <label for="specs">Required skills</label>
-      <tag-input id="specs" class="form-control" [theme]="'my-theme'" secondaryPlaceholder="Enter a skill" placeholder="Enter more skill" [(ngModel)]="model.specs" modelAsStrings="true" name="specs" required #spec="ngModel">
+      <tag-input id="specs" class="form-control" [theme]="'my-theme'" secondaryPlaceholder="eg. HTML" placeholder="eg. Javascript" [(ngModel)]="model.specs" modelAsStrings="true" name="specs" required #spec="ngModel">
         <tag-input-dropdown [autocompleteItems]="skills">
         </tag-input-dropdown>
       </tag-input>
@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
       <label for="location">Job location</label>
-      <input type="text" id="location" class="form-control" placeholder="Location" [(ngModel)]="model.location" name="location" required #location="ngModel"/>
+      <input type="text" id="location" class="form-control" placeholder="eg. Malaysia" [(ngModel)]="model.location" name="location" required #location="ngModel"/>
       <div class="error text-danger" [hidden]="location.valid || location.untouched || (location.pristine && vacancyFormDir.submitted)">
         Job location is required
       </div>
