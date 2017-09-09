@@ -33,7 +33,7 @@ export class VacancyDashboardComponent implements OnInit {
 
   @ViewChild('deleteModal') deleteModal;
 
-  vacancies: Vacancy[] = [];
+  vacancies: Vacancy[];
   deleting_item_label: string;
   listQuery: ApolloQueryObservable<any>;
 

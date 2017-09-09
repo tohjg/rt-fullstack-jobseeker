@@ -6,7 +6,7 @@
 </div>
 
 <!-- when there's no record found, -->
-<div class="container empty-state-content">
+<div class="container empty-state-content" *ngIf="vacancies != undefined && vacancies.length == 0">
   <img src="../../assets/magnifying-glass-search-users-user-search-people-icon.png" class="magnifying-glass mx-auto d-block"/>
   <div class="content">
     Looking for professional personel to help you to grow your business? You have got our back to find the best talent <br />in town.
@@ -17,10 +17,10 @@
 
 
 <!-- otherwise, record found -->
-<div class="container">
-  <!--<div class="request-btn-wrapper"><a class="btn btn-primary request-btn" routerLink="/vacancy">Make a request</a></div> -->
+<div class="container" *ngIf="vacancies != undefined && vacancies.length > 0">
+  <div class="request-btn-wrapper"><a class="btn btn-primary request-btn" routerLink="/vacancy">Make a request</a></div>
 
-  <table class="table table-responsive table-hover" *ngIf="vacancies.length > 0">
+  <table class="table table-responsive table-hover">
     <thead>
       <tr>
         <th>Position</th>
