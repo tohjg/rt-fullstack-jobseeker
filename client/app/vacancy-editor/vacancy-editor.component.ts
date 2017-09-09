@@ -91,6 +91,7 @@ export class VacancyEditorComponent implements OnInit {
     tooltips: [true, true],
     keyboard: true,
   };
+  isLoading:boolean = false;
 
   constructor(
     private apollo:Apollo,
@@ -117,6 +118,7 @@ export class VacancyEditorComponent implements OnInit {
   }
 
   queryVacancy(id:string) {
+    this.isLoading = true;
     this.apollo.watchQuery<any>({
       query: vacancyQuery,
       variables: {
@@ -133,6 +135,7 @@ export class VacancyEditorComponent implements OnInit {
         data.vacancy.contactPhone,
         data.vacancy.contactEmail
       );
+      this.isLoading = false;
     });
   }
 

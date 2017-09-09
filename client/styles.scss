@@ -4,3 +4,13 @@
 .noUi-connect {
     background: #007bff;
 }
+
+.loading-container {
+    margin-top: 7em;
+    text-align: center;
+
+    .loading {
+        font-size: 4rem;
+        color: #B3B3B3;
+    }
+}

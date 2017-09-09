@@ -4,7 +4,10 @@
   </div>
   
 </div>
-<div class="container">  
+<div class="container loading-container" *ngIf="isLoading">
+  <i class="fa fa-refresh fa-spin loading"></i>
+</div>
+<div class="container" *ngIf="!isLoading">
   <form (ngSubmit)="requestVacancy()" #vacancyFormDir="ngForm" >
     <div class="form-group">
       <label for="position">Position</label>
