@@ -1,5 +1,5 @@
 # rt-fullstack-jobseeker
-Mini project for employer to request talent search for their business or project.
+Mini project for employer to request talent search for their business or project to recruitment consultant.
 
 ## Objective
 Basic job vacancy submission form, where clients can send us details of job vacancies that they would like us to help fill.
