@@ -8,6 +8,16 @@
     text-shadow: rgba(0, 0, 0, 0.69) 0px 0px 3px;
 }
 
+.loading-container {
+    margin-top: 7em;
+    text-align: center;
+
+    .loading {
+        font-size: 4rem;
+        color: #B3B3B3;
+    }
+}
+
 .empty-state-content {
     width: 30em;
     margin-top: 7em;

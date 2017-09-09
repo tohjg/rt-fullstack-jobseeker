@@ -5,6 +5,10 @@
   
 </div>
 
+<div class="container loading-container" *ngIf="vacancies == undefined">
+  <i class="fa fa-refresh fa-spin loading"></i>
+</div>
+
 <!-- when there's no record found, -->
 <div class="container empty-state-content" *ngIf="vacancies != undefined && vacancies.length == 0">
   <img src="../../assets/magnifying-glass-search-users-user-search-people-icon.png" class="magnifying-glass mx-auto d-block"/>
