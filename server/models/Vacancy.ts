@@ -4,8 +4,7 @@ const dbVacancySchema = new mongoose.Schema({
     position: String,
     skills: Array,
     location: String,
-    minSalary: Number,
-    maxSalary: Number,
+    salaryRange: Array,
     contactName: String,
     contactPhone: String,
     contactEmail: String

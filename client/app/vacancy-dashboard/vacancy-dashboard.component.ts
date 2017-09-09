@@ -53,7 +53,7 @@ export class VacancyDashboardComponent implements OnInit {
     // subscribe to the observable
     this.listQuery.subscribe(({data}) => {
       this.vacancies = data.vacancies.reduce((acc, vacancy) => {
-        acc.push(new Vacancy(vacancy.id, vacancy.position, null, vacancy.location, null, null, vacancy.contactName));
+        acc.push(new Vacancy(vacancy.id, vacancy.position, null, vacancy.location, null, vacancy.contactName));
         return acc;
       }, []);
     });

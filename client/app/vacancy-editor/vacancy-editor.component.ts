@@ -12,8 +12,7 @@ const requestVacancyMutation = gpl`
   mutation newTalent($position:String!, 
     $specs:[String]!, 
     $location:String!, 
-    $salary_min:Int!, 
-    $salary_max:Int!, 
+    $salary_range:[Int]!, 
     $ctc_name:String!, 
     $ctc_phone:String!,
     $ctc_email:String!,
@@ -23,8 +22,7 @@ const requestVacancyMutation = gpl`
         position: $position,
         skills: $specs,
         location: $location,
-        minSalary: $salary_min,
-        maxSalary: $salary_max,
+        salaryRange: $salary_range,
         contactName: $ctc_name,
         contactPhone: $ctc_phone,
         contactEmail: $ctc_email,
@@ -42,8 +40,7 @@ query getVacancy($id:ID) {
     position,
     skills,
     location,
-    minSalary,
-    maxSalary,
+    salaryRange,
     contactName,
     contactEmail,
     contactPhone
@@ -83,6 +80,17 @@ export class VacancyEditorComponent implements OnInit {
   ];
   id: string;
   successMessage: string;
+  config: any = {
+    behaviour: 'drag',
+    connect: true,
+    step: 100,
+    range: {
+      min: 0,
+      max: 90000
+    },
+    tooltips: [true, true],
+    keyboard: true,
+  };
 
   constructor(
     private apollo:Apollo,
@@ -120,8 +128,7 @@ export class VacancyEditorComponent implements OnInit {
         data.vacancy.position,
         data.vacancy.skills,
         data.vacancy.location,
-        data.vacancy.minSalary,
-        data.vacancy.maxSalary,
+        data.vacancy.salaryRange,
         data.vacancy.contactName,
         data.vacancy.contactPhone,
         data.vacancy.contactEmail

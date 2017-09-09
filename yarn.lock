@@ -3772,6 +3772,10 @@ ng2-material-dropdown@0.7.10:
   version "0.7.10"
   resolved "https://registry.yarnpkg.com/ng2-material-dropdown/-/ng2-material-dropdown-0.7.10.tgz#093471f2a9cadd726cbcb120b0ad7818a54fa5ed"
 
+ng2-nouislider@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/ng2-nouislider/-/ng2-nouislider-1.6.2.tgz#cacf2983afda6fd3dcdc94493cd1ddddfffa2cc5"
+
 ngx-chips@^1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/ngx-chips/-/ngx-chips-1.5.3.tgz#8b47cf02bad41c0107fbf072e8f65e40c92fee59"
@@ -3936,6 +3940,10 @@ normalize-url@^1.4.0:
     prepend-http "^1.0.0"
     query-string "^4.1.0"
     sort-keys "^1.0.0"
+
+nouislider@^10.1.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/nouislider/-/nouislider-10.1.0.tgz#7bdd0411fd62d4584bfe88cb92bb8d06e64c6b47"
 
 npm-run-path@^2.0.0:
   version "2.0.2"

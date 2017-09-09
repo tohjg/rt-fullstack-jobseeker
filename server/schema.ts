@@ -6,8 +6,7 @@ const typeDefs = `
     position: String,
     skills: [String],
     location: String,
-    minSalary: Int,
-    maxSalary: Int,
+    salaryRange: [Int],
     contactName: String,
     contactPhone: String,
     contactEmail: String
@@ -18,8 +17,7 @@ const typeDefs = `
     position: String,
     skills: [String],
     location: String,
-    minSalary: Int,
-    maxSalary: Int,
+    salaryRange: [Int],
     contactName: String,
     contactEmail: String,
     contactPhone: String

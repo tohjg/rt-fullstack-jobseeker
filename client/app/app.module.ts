@@ -6,6 +6,7 @@ import { ApolloModule } from 'apollo-angular';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NouisliderModule } from 'ng2-nouislider';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
@@ -37,7 +38,8 @@ export function provideClient(): ApolloClient {
     ApolloModule.forRoot(provideClient),
     NgbModule.forRoot(),
     TagInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NouisliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

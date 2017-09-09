@@ -32,13 +32,8 @@
     </div>
     <div class="form-group">
       <label for="salary">Salary</label>
-      <div class="form-inline" >
-          <input type="number" class="form-control" id="salary_min" placeholder="Salary minimum" [(ngModel)]="model.salary_min" [valueSmallerThan]="salaryMax" name="salary_min" #salaryMin="ngModel" required #spyMin />
-          <span class="salary_indicator">-</span>
-          <input type="number" class="form-control" id="salary_max" placeholder="Salary maximum" [(ngModel)]="model.salary_max" [valueLargerThan]="salaryMin" name="salary_max" #salaryMax="ngModel" required #spy/>
-      </div>
-      <div class="error text-danger" [hidden]="(salaryMin.valid && salaryMax.valid) || (salaryMin.untouched && salaryMax.untouched) || vacancyFormDir.submitted">
-        Invalid salary range
+      <div class="slider-container">
+        <nouislider name="salary" [config]="config" [(ngModel)]="model.salary_range" #salaryRange></nouislider>
       </div>
     </div>
     <div class="form-group">
