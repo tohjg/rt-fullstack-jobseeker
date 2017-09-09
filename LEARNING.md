@@ -23,5 +23,7 @@
         - good example to 
     - https://eddywashere.com/blog/switching-out-callbacks-with-promises-in-mongoose/
     - https://dev-blog.apollodata.com/tutorial-building-a-graphql-server-cddaa023c035
+    - http://dev.apollodata.com/angular2/index.html
+    - http://dev.apollodata.com/tools/
 - progressive web
     - https://houssein.me/progressive-angular-applications
