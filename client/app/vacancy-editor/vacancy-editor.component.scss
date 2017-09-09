@@ -1,4 +1,4 @@
-@import '../../../node_modules/ngx-chips/dist/modules/core/styles/core/_core.scss';
+@import '~ngx-chips/dist/modules/core/styles/core/_core.scss';
 
 // this is the container's theme
 $my-theme: (
@@ -23,8 +23,14 @@ $my-theme-tag-theme: (
 
 // ==
 
-.header {
-    margin-bottom: 3em;
+.cover-header {
+    background: url("../../assets/jumbotron.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 0;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.69) 0px 0px 3px;
 }
 
 .submit-btn {
