@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var graphql_tools_1 = require("graphql-tools");
-var Vacancy_1 = require("./models/Vacancy");
+var vacancy_1 = require("./controllers/vacancy");
 var typeDefs = "\n  input TalentRequestForm {\n    id: ID,\n    position: String,\n    skills: [String],\n    location: String,\n    salaryRange: [Int],\n    contactName: String,\n    contactPhone: String,\n    contactEmail: String\n  }\n\n  type Vacancy {\n    id: ID!,\n    position: String,\n    skills: [String],\n    location: String,\n    salaryRange: [Int],\n    contactName: String,\n    contactEmail: String,\n    contactPhone: String\n  }\n  \n  type Query {\n    vacancies: [Vacancy],\n    vacancy(\n      id: ID\n    ): Vacancy\n  }\n\n  type RemovalTalentPayload {\n    id: ID\n  }\n\n  type Mutation {\n    requestTalentSearch(\n      params: TalentRequestForm\n    ): Vacancy\n\n    removeTalentSearch(\n      id: ID\n    ): RemovalTalentPayload\n  }\n";
-var vacancyCtrl = new Vacancy_1.default();
+var vacancyCtrl = new vacancy_1.default();
 var resolvers = {
     Query: {
         vacancies: function (obj, args, context) {
