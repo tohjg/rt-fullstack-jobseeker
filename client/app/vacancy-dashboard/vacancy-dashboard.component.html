@@ -39,7 +39,7 @@
         <td>{{vacancy.location}}</td>
         <td>{{vacancy.ctc_name}}</td>
         <td>
-          <a class="btn btn-primary" href="#">Result</a>
+          <a class="btn btn-primary disabled" href="#">Result</a>
           <a class="btn btn-outline-primary" [routerLink]="['vacancy', vacancy.id]">Edit</a>
           <a class="btn btn-outline-danger" (click)="removeVacancy(vacancy)" href="#">Delete</a>
         </td>
