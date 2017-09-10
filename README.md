@@ -19,25 +19,34 @@ Check out live app @ https://rt-fullstack-job.herokuapp.com/
 
 ## Framework/technology stack used
 * Angular 4
-* SASS + Bootstrap 4
+* CSS/SASS + Bootstrap 4
 * GraphQL
 * Express
 * MongoDB
 
 ## Quick install
 ```
+# clone this repository
+git clone https://github.com/tohjg/rt-fullstack-jobseeker
+
+# install Angular CLI
 npm install -g @angular/cli
+
+# install add required dependencies
 npm install
 ```
 
 ## Local deployment
 ```
+# run development environment for frontend and backend
 npm run dev
+
+# run development environment for backend
+npm run dev:backend
 ```
-Open http://localhost:4200 on your browser
 
 ## Deploy
-Make sure you have heroku CLI and account logged in.
+Make sure you have Heroku CLI and account logged in. Create an app on Heroku
 ```
 heroku git:remote -a your-app-name
 npm run build
@@ -47,4 +56,4 @@ git push heroku master
 ```
 
 ## Learning and side notes
-During development, I saved blogs/material/docs link as I learn and solve problems. It will be my own future references as well as sharing. Please refer [LEARNING.md](https://github.com/tohjg/rt-fullstack-jobseeker/blob/master/LEARNING.md)
+During development, I saved blogs/material/docs link while learning and solving problems. It will be my own future references as well as sharing. Please refer [LEARNING.md](https://github.com/tohjg/rt-fullstack-jobseeker/blob/master/LEARNING.md)
