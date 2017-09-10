@@ -28,6 +28,7 @@ Check out live app @ https://rt-fullstack-job.herokuapp.com/
 ```
 # clone this repository
 git clone https://github.com/tohjg/rt-fullstack-jobseeker
+cd rt-fullstack-jobseeker
 
 # install Angular CLI
 npm install -g @angular/cli
@@ -49,7 +50,7 @@ npm run dev:backend
 Make sure you have Heroku CLI and account logged in. Create an app on Heroku
 ```
 heroku git:remote -a your-app-name
-npm run build
+npm run build-and-deploy
 git add .
 git commit -m "deploy to heroku"
 git push heroku master
