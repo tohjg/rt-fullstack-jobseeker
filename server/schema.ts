@@ -1,5 +1,5 @@
 import { makeExecutableSchema } from 'graphql-tools';
-import Vacancy from "./models/Vacancy";
+import VacancyController from "./controllers/vacancy";
 const typeDefs = `
   input TalentRequestForm {
     id: ID,
@@ -45,7 +45,7 @@ const typeDefs = `
   }
 `;
 
-const vacancyCtrl = new Vacancy();
+const vacancyCtrl = new VacancyController();
 
 const resolvers = {
   Query: {
