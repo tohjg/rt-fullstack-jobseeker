@@ -13,12 +13,13 @@ Check out live app @ https://rt-fullstack-job.herokuapp.com/
     * Skills related to the vacancy (can be from list of industry skills - e.g. IT industry skills)
     * Salary range
     * Job location
+    * Form validation
 
 2. View a list of submitted vacancies
 
 ## Framework/technology stack used
 * Angular 4
-* SASS
+* SASS + Bootstrap 4
 * GraphQL
 * Express
 * MongoDB
